@@ -13,11 +13,11 @@ CREATE TABLE raw.frontpage_traces (
     cellid SERIAL PRIMARY KEY,
     exampleid INTEGER NOT NULL,
     ingoing BOOLEAN NOT NULL,
-    circuit INTEGER NOT NULL,
-    stream INTEGER NOT NULL,
+    circuit BIGINT NOT NULL,
+    stream BIGINT NOT NULL,
     command VARCHAR(40) NOT NULL,
     length INTEGER NOT NULL,
-    t_trace TIMESTAMP NOT NULL
+    t_trace NUMERIC NOT NULL
 );
 
 CREATE TABLE raw.crawlers (
