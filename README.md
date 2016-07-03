@@ -1,2 +1,5 @@
 # fun-with-fingerprinting
-yooooooo this is a description
+
+`exploration`: data exploration
+
+`etl`: database setup
