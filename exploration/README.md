@@ -14,3 +14,8 @@ Data exploration done on single traces before the data were loaded:
 
 ## Loaded
 
+Exploration using the populated database:
+
+`validation_rendezvous_circuits.ipynb`: exploring the rendezvous circuits
+
+`validation_general_traces.ipynb`: examining the final command in each trace, the typical duration of traces
