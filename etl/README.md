@@ -14,6 +14,10 @@ Everytime you have a directory populated with a bunch of files you'd like to put
 
 This will show a progress bar of the status adding these new data into the database.
 
+# Database Design
+
+![](database_design.png)
+
 # Commence exciting SQL queries
 
 Example:
