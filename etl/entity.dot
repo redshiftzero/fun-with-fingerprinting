@@ -1,0 +1,55 @@
+digraph db_diagram {
+
+  graph[rankdir=LR, overlap=false, splines=true]
+
+subgraph cluster0 {
+  label="schema: features"
+  labeljust="l"
+  style=filled
+  color=lightgrey
+  struct4 [shape=record, style="filled", color="white", label="table: 
+frontpages|<f0> exampleid: integer, pk|<f1> feature1|<f2>feature2|<f3>...|<f4>
+featurek"]
+
+}
+
+subgraph cluster1 {
+  label="schema: raw"
+  labeljust="l"
+  style=filled
+  color=lightgrey
+  struct1 [shape=record, style="filled", color="white", label="table:
+  frontpage_examples|<f0> exampleid: serial, pk
+  |<f1> hs_url: varchar|<f2>is_sd: boolean|<f3>sd_version: 
+  varchar|<f4>is_current: boolean|<f5>crawlerid: integer, fk|<f6>t_scrape: 
+  timestamp"]
+  struct2 [shape=record, style="filled", color="white", label="table: 
+  frontpage_traces|<f0> cellid: serial, pk|<f1>exampleid: integer, fk|<f2>
+  ingoing: boolean|<f3>circuit: integer|<f4>stream: integer|<f5>command: 
+  varchar|<f6>length: integer|<f7>t_trace: timestamp"]
+  struct3 [shape=record, style="filled", color="white", label="table:
+  crawlers|<f0>
+  crawlerid: serial, pk|<f1>
+  page_load_timeout: integer|<f2>
+  wait_on_page: integer|<f3>
+  wait_after_closing_circuits: integer|<f4>
+  entry_node: varchar|<f5>
+  os: varchar|<f6>
+  kernel: varchar|<f7>
+  kernel_version: varchar|<f8>
+  python_version: varchar|<f9>
+  tor_version: varchar|<f10>
+  tb_version: varchar|<f11>
+  crawler_version: varchar|<f12>
+  city: varchar|<f13>
+  country: varchar|<f14>
+  asn: integer|<f15>
+  ip: inet"]
+
+  struct1:f0 -> struct2:f1 [dir="both" arrowtail=tee arrowhead=crow];
+  struct1:f5 -> struct3:f0 [dir="both" arrowtail=crow arrowhead=tee];
+  struct1:f0 -> struct4:f0 [dir="both" arrowtail=tee arrowhead=tee]
+
+}
+
+}
